@@ -1,4 +1,5 @@
-import { Badge } from '@/components/ui/badge'
+import { PageHeader } from '@/features/about/components/PageHeader'
+import { TechnologyGroupList } from '@/features/about/components/technologies/TechnologyGroupList'
 import { useTechnologiesViewModel } from '../viewmodel/TechnologiesViewModel'
 
 export function TechnologiesView() {
@@ -15,31 +16,8 @@ export function TechnologiesView() {
     ) : (
     <section className="py-20">
       <div className="max-w-3xl space-y-12">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {viewModel.pageInfo.title}
-          </h2>
-          <p className="text-muted-foreground">
-            {viewModel.pageInfo.description}
-          </p>
-        </div>
-
-        <div className="space-y-10">
-          {viewModel.technologies.map((group) => (
-            <div key={group.title}>
-              <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
-                {group.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <Badge key={item} variant="secondary" className="font-normal">
-                    {item}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <PageHeader title={viewModel.pageInfo.title} description={viewModel.pageInfo.description} />
+        <TechnologyGroupList groups={viewModel.technologies} />
       </div>
     </section>
     )
