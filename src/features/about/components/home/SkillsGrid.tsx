@@ -1,4 +1,4 @@
-import { Code2, Database, Layers } from 'lucide-react'
+import { Code2, Database, Layers, Puzzle } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import type { Skill } from '@/features/about/models/HomeModels'
 
@@ -12,8 +12,9 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
       Code2,
       Layers,
       Database,
+      Puzzle,
     }
-    return icons[iconName as keyof typeof icons]
+    return icons[iconName as keyof typeof icons] || Code2
   }
 
   return (

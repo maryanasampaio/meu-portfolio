@@ -30,6 +30,7 @@ export const aboutSectionsMock: AboutSection[] = [
     description:
       'Cursando Engenharia de Software, com foco em arquitetura de sistemas, padrões de projeto e metodologias ágeis.',
   },
+    
   {
     title: 'Interesses',
     description:
