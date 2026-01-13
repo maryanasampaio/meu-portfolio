@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { HomeView } from '@/features/home/views/HomeView'
+import { HomeView } from '@/features/about/views/HomeView'
 import { AboutView } from '@/features/about/views/AboutView'
-import { ProjectsView } from '@/features/projects/views/ProjectsView'
-import { TechnologiesView } from '@/features/technologies/views/TechnologiesView'
-import { ContactView } from '@/features/contact/views/ContactView'
+import { ProjectsView } from '@/features/about/views/ProjectsView'
+import { TechnologiesView } from '@/features/about/views/TechnologiesView'
+import { ContactView } from '@/features/about/views/ContactView'
 import { AppLayout } from '@/core/components/AppLayout'
 
 const router = createBrowserRouter([
