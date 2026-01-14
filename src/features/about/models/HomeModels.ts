@@ -3,6 +3,7 @@ export interface PersonalInfo {
   title: string
   description: string
   githubUrl: string
+  linkedinUrl: string
 }
 
 export interface Skill {

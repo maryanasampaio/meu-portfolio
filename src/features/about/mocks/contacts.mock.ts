@@ -11,5 +11,5 @@ export const contactsMock: Contact[] = [
 export const contactsPageInfoMock: PageInfo = {
   title: 'Contato',
   description:
-    'Aberta a oportunidades de trabalho fullstack júnior. Entre em contato através dos canais abaixo.',
+    'Aberta a oportunidades de trabalho. Entre em contato através dos canais abaixo.',
 }

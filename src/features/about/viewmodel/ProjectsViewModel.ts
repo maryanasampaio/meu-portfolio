@@ -22,8 +22,10 @@ export function useProjectsViewModel() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedFilter, setSelectedFilter] = useState<string>('Todos')
 
+  const allowedTechs = ['Angular', 'React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS', 'Java', 'Spring Boot', 'PHP', 'Laravel', 'Node.js', 'REST API']
+
   const allTechs = useMemo(
-    () => [...new Set(projects.flatMap((p) => p.technologies))].sort(),
+    () => [...new Set(projects.flatMap((p) => p.technologies))].filter(tech => allowedTechs.includes(tech)).sort(),
     [projects]
   )
 

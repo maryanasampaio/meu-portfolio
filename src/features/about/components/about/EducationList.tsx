@@ -17,9 +17,9 @@ export function EducationList({ items }: EducationListProps) {
             {edu.period}
           </header>
           <div className="z-10 sm:col-span-6">
-            <h3 className="font-medium leading-snug text-slate-200">
+            <h3 className="font-medium leading-snug text-foreground dark:text-slate-200">
               <span className="inline-block">
-                {edu.degree} · <span className="text-slate-300">{edu.institution}</span>
+                {edu.degree} · <span className="text-foreground/90 dark:text-slate-300">{edu.institution}</span>
               </span>
             </h3>
             {edu.status && (

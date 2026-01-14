@@ -9,17 +9,17 @@ export const aboutPersonalInfoMock: AboutPersonalInfo = {
 export const aboutTextMock: AboutParagraph[] = [
   {
     content:
-      'Sou estudante de Engenharia de Software com experiência prática em desenvolvimento fullstack. Trabalho com arquitetura de aplicações modernas, desde APIs RESTful até interfaces responsivas e intuitivas.',
+      'Sou estudante de Engenharia de Software com experiência prática em desenvolvimento full stack. Trabalho com arquitetura de aplicações modernas, desde APIs RESTful até interfaces responsivas e intuitivas.',
     highlight: { text: 'Engenharia de Software', position: 'start' },
   },
   {
     content:
-      'Minha abordagem combina análise criteriosa de problemas, código limpo e testes automatizados. Tenho experiência sólida com bancos de dados relacionais e não-relacionais, sempre priorizando performance e manutenibilidade.',
+      'Minha abordagem combina análise criteriosa de problemas, pensamento lógico das soluções e código limpo, sempre priorizando performance e manutenibilidade.',
     highlight: null,
   },
   {
     content:
-      'Busco evoluir como desenvolvedora fullstack, contribuindo em projetos que impactem positivamente usuários e aprendendo com equipes técnicas de alto nível.',
+      'Busco evoluir como desenvolvedora full stack, contribuindo em projetos que impactem positivamente usuários, aprendendo e contribuindo com equipes técnicas de alto nível.',
     highlight: null,
   },
 ]

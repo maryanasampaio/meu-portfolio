@@ -41,10 +41,6 @@ export function AboutView() {
             <EducationList items={viewModel.education} />
           </div>
         </div>
-
-        <div className="border-t pt-12">
-          <SectionsGrid sections={viewModel.sections} />
-        </div>
       </div>
     </section>
     )

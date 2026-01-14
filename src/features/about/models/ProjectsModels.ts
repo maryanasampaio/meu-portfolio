@@ -9,4 +9,6 @@ export interface Project {
   demo?: string
   category: ProjectCategory
   highlight?: boolean
+  imageUrl?: string
+  videoUrl?: string
 }

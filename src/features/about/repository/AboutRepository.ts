@@ -1,6 +1,6 @@
-import { aboutPersonalInfoMock, aboutTextMock, aboutSectionsMock } from '@/features/about/mocks/about.mock'
+import { aboutPersonalInfoMock, aboutTextMock } from '@/features/about/mocks/about.mock'
 import { mockApi } from '@/features/about/mocks/utils'
-import type { AboutParagraph, AboutPersonalInfo, AboutSection } from '../models/AboutModels'
+import type { AboutParagraph, AboutPersonalInfo } from '../models/AboutModels'
 import type { Experience } from '../models/ExperienceModels'
 import { experiencesMock } from '@/features/about/mocks/experiences.mock'
 import type { Education } from '../models/EducationModels'
@@ -12,9 +12,6 @@ export const AboutRepository = {
   },
   async getAboutText(): Promise<AboutParagraph[]> {
     return mockApi(aboutTextMock)
-  },
-  async getSections(): Promise<AboutSection[]> {
-    return mockApi(aboutSectionsMock)
   },
   async getExperiences(): Promise<Experience[]> {
     return mockApi(experiencesMock)

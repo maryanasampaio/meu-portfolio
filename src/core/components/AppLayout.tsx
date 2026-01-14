@@ -1,23 +1,26 @@
-import { Outlet, Link, NavLink } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Github, Moon, Sun } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { SpotlightBackground } from '@/core/components/SpotlightBackground'
+import { FloatingIcons } from '@/core/components/FloatingIcons'
 
 export function AppLayout() {
   return (
-    <div className="min-h-dvh flex flex-col">
+    <div className="min-h-dvh flex flex-col relative group/spotlight">
+      <SpotlightBackground />
+      <FloatingIcons />
       <header className="border-b sticky top-0 z-50 bg-background/80 backdrop-blur">
         <div className="container mx-auto max-w-6xl px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="font-bold text-xl hover:opacity-70 transition-opacity">
+            <a href="#home" className="font-bold text-xl hover:opacity-70 transition-opacity">
               MS
-            </Link>
+            </a>
             <nav className="hidden md:flex gap-1">
-              <NavItem to="/">Home</NavItem>
-              <NavItem to="/sobre">Sobre</NavItem>
-              <NavItem to="/projetos">Projetos</NavItem>
-              <NavItem to="/tecnologias">Tecnologias</NavItem>
-              <NavItem to="/contato">Contato</NavItem>
+              <NavItem href="#home">Home</NavItem>
+              <NavItem href="#sobre">Sobre</NavItem>
+              <NavItem href="#projetos">Projetos</NavItem>
+              <NavItem href="#contato">Contato</NavItem>
             </nav>
             <div className="flex gap-2">
               <ThemeToggle />
@@ -29,25 +32,22 @@ export function AppLayout() {
             </div>
           </div>
           <nav className="flex md:hidden gap-1 mt-3 overflow-x-auto">
-            <NavItem to="/" mobile>
+            <NavItem href="#home" mobile>
               Home
             </NavItem>
-            <NavItem to="/sobre" mobile>
+            <NavItem href="#sobre" mobile>
               Sobre
             </NavItem>
-            <NavItem to="/projetos" mobile>
+            <NavItem href="#projetos" mobile>
               Projetos
             </NavItem>
-            <NavItem to="/tecnologias" mobile>
-              Techs
-            </NavItem>
-            <NavItem to="/contato" mobile>
+            <NavItem href="#contato" mobile>
               Contato
             </NavItem>
           </nav>
         </div>
       </header>
-      <main className="flex-1 container mx-auto max-w-6xl px-4 py-8">
+      <main className="flex-1 container mx-auto max-w-6xl px-4 py-8 selection:bg-teal-300 selection:text-teal-900">
         <Outlet />
       </main>
       <footer className="border-t">
@@ -79,21 +79,25 @@ export function AppLayout() {
   )
 }
 
-function NavItem({ to, children, mobile }: { to: string; children: React.ReactNode; mobile?: boolean }) {
+function NavItem({ href, children, mobile }: { href: string; children: React.ReactNode; mobile?: boolean }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
-    <NavLink
-      to={to}
-      className={({ isActive }) =>
-        isActive
-          ? 'text-foreground font-medium'
-          : 'text-muted-foreground hover:text-foreground transition-colors'
-      }
-      end
+    <a
+      href={href}
+      onClick={handleClick}
+      className="text-muted-foreground hover:text-foreground transition-colors"
     >
       <Button variant="ghost" size={mobile ? 'sm' : 'default'} asChild>
         <span>{children}</span>
       </Button>
-    </NavLink>
+    </a>
   )
 }
 

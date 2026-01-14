@@ -7,6 +7,9 @@ import { useProjectsViewModel } from '../viewmodel/ProjectsViewModel'
 
 export function ProjectsView() {
   const viewModel = useProjectsViewModel()
+  
+  const highlightedProjects = viewModel.filteredProjects.filter(p => p.highlight)
+  const regularProjects = viewModel.filteredProjects.filter(p => !p.highlight)
 
   return (
     viewModel.isLoading ? (
@@ -28,11 +31,31 @@ export function ProjectsView() {
 
         {viewModel.filteredProjects.length === 0 && <EmptyState />}
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {viewModel.filteredProjects.map((project, index) => (
-            <ProjectCard key={project.name} project={project} index={index} />
-          ))}
-        </div>
+        {/* Projetos em Destaque */}
+        {highlightedProjects.length > 0 && (
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-slate-200">Projetos em Destaque</h3>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {highlightedProjects.map((project, index) => (
+                <ProjectCard key={project.name} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Outros Projetos */}
+        {regularProjects.length > 0 && (
+          <div className="space-y-6">
+            {highlightedProjects.length > 0 && (
+              <h3 className="text-2xl font-bold text-slate-200">Outros Projetos</h3>
+            )}
+            <div className="grid lg:grid-cols-2 gap-8">
+              {regularProjects.map((project, index) => (
+                <ProjectCard key={project.name} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
     )

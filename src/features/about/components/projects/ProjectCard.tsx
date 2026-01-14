@@ -1,6 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Github, ExternalLink } from 'lucide-react'
+import { Github } from 'lucide-react'
 import type { Project } from '@/features/about/models/ProjectsModels'
 
 interface ProjectCardProps {
@@ -10,65 +9,66 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <div
-      className="group relative rounded-2xl border bg-gradient-to-br from-card to-card/50 p-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      <div className="relative z-10 space-y-5">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            <h3 className="text-2xl font-bold mb-2 truncate group-hover:text-primary transition-colors">
-              {project.name}
-            </h3>
-            <p className="text-sm text-muted-foreground font-medium line-clamp-2">
-              {project.description}
-            </p>
-          </div>
-          <Badge className="shrink-0 font-semibold" variant={index < 2 ? 'default' : 'secondary'}>
-            {project.category}
-          </Badge>
+    <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group flex flex-col hover:scale-[1.02]">
+      {/* Media Section */}
+      {(project.videoUrl || project.imageUrl) && (
+        <div className="aspect-video w-full bg-muted relative overflow-hidden border-b-2 border-border">
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          {project.videoUrl ? (
+            <video
+              src={project.videoUrl}
+              controls
+              poster={project.imageUrl}
+              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+            >
+              Seu navegador não suporta vídeos.
+            </video>
+          ) : (
+            <img
+              src={project.imageUrl}
+              alt={project.name}
+              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+            />
+          )}
         </div>
+      )}
 
-        <div className="bg-muted/30 rounded-lg p-4 border-l-4 border-primary/30">
-          <p className="text-sm leading-relaxed text-foreground/80">{project.longDescription}</p>
-        </div>
+      {/* Content Section */}
+      <div className="p-6 flex flex-col flex-grow relative bg-card">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
+        <h3 className="text-2xl font-bold text-foreground mb-2 relative z-10">
+          {project.name}
+        </h3>
+        <p className="text-muted-foreground mb-6 flex-grow relative z-10">
+          {project.description}
+        </p>
 
-        <div className="flex flex-wrap gap-2">
+        {/* Tech Badges */}
+        <div className="flex flex-wrap gap-2 mb-6 relative z-10">
           {project.technologies.map((tech) => (
             <Badge
               key={tech}
               variant="outline"
-              className="font-medium border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-colors"
+              className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs rounded-full hover:bg-primary/20 transition-colors"
             >
               {tech}
             </Badge>
           ))}
         </div>
 
-        <div className="flex gap-3 pt-3">
-          <Button asChild className="flex-1" size="default">
-            <a href={project.github} target="_blank" rel="noreferrer">
-              <Github className="w-4 h-4 mr-2" />
-              Código
-            </a>
-          </Button>
-          {project.demo && (
-            <Button asChild variant="outline" className="flex-1" size="default">
-              <a href={project.demo} target="_blank" rel="noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Demo
-              </a>
-            </Button>
-          )}
+        {/* Actions */}
+        <div className="flex gap-4 mt-auto relative z-10">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground py-2 rounded-lg font-medium hover:opacity-90 hover:scale-105 transition-all shadow-lg hover:shadow-primary/50"
+          >
+            <Github size={18} />
+            Código
+          </a>
         </div>
       </div>
-
-      {index === 0 && (
-        <div className="absolute top-0 right-0 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground text-xs font-bold px-4 py-2 rounded-bl-2xl rounded-tr-2xl shadow-lg">
-          ⭐ Destaque
-        </div>
-      )}
     </div>
   )
 }
