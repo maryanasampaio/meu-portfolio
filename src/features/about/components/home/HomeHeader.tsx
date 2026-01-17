@@ -10,8 +10,8 @@ export function HomeHeader({ personalInfo, onNavigateToProjects }: HomeHeaderPro
   return (
     <div className="mb-12">
       <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-        <span 
-          className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 dark:from-blue-600 dark:via-slate-100 dark:to-blue-500 bg-clip-text text-transparent animate-gradient"
+        <span
+          className="animate-gradient bg-gradient-to-r from-blue-700 via-blue-500 to-blue-600 dark:from-blue-400 dark:via-blue-200 dark:to-white bg-clip-text text-transparent font-extrabold"
           style={{ backgroundSize: '200% 200%' }}
         >
           {personalInfo.name}
@@ -20,7 +20,7 @@ export function HomeHeader({ personalInfo, onNavigateToProjects }: HomeHeaderPro
       <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-4">
         {personalInfo.title}
       </p>
-      <p className="text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+      <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
         {personalInfo.description}
       </p>
       <div className="flex flex-wrap gap-4 mb-8">

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
 @theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -72,7 +86,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased leading-relaxed;
+    @apply bg-background text-foreground antialiased;
   }
 }
 

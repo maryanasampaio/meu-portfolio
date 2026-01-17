@@ -10,7 +10,7 @@ export function SectionsGrid({ sections }: SectionsGridProps) {
       {sections.map((section) => (
         <div key={section.title} className="p-6 rounded-lg border bg-card/50">
           <h3 className="text-lg font-semibold mb-3">{section.title}</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">{section.description}</p>
+          <p className="text-muted-foreground text-sm">{section.description}</p>
         </div>
       ))}
     </div>

@@ -6,7 +6,7 @@ interface AboutParagraphsProps {
 
 export function AboutParagraphs({ paragraphs }: AboutParagraphsProps) {
   return (
-    <div className="flex-1 space-y-4 text-muted-foreground leading-relaxed">
+    <div className="flex-1 space-y-4 text-muted-foreground">
       {paragraphs.map((paragraph, index) => (
         <p key={index}>
           {paragraph.highlight ? (

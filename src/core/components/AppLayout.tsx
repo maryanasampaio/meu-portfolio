@@ -53,7 +53,12 @@ export function AppLayout() {
       <footer className="border-t">
         <div className="container mx-auto max-w-6xl px-4 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Maryana Sampaio</p>
+            <p>
+              © {new Date().getFullYear()}{' '}
+              <span className="animate-gradient bg-gradient-to-r from-blue-700 via-blue-500 to-blue-600 dark:from-blue-400 dark:via-blue-200 dark:to-white bg-clip-text text-transparent font-semibold" style={{ backgroundSize: '200% 200%' }}>
+                Maryana Sampaio
+              </span>
+            </p>
             <div className="flex gap-4">
               <a
                 href="https://github.com/maryanasampaio"

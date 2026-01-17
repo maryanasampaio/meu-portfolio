@@ -23,7 +23,7 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
               {exp.role}
             </h3>
             <p className="mt-1 text-xs text-muted-foreground">{exp.location}</p>
-            <ul className="mt-3 list-disc pl-5 text-sm leading-relaxed text-foreground/80 space-y-1">
+            <ul className="mt-3 list-disc pl-5 text-sm text-foreground/80 space-y-1">
               {exp.responsibilities.map((item) => (
                 <li key={item}>{item}</li>
               ))}
