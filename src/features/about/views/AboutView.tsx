@@ -2,7 +2,6 @@ import { useAboutViewModel } from '../viewmodel/AboutViewModel'
 import { PageHeader } from '@/features/about/components/PageHeader'
 import { ProfileImage } from '@/features/about/components/about/ProfileImage'
 import { AboutParagraphs } from '@/features/about/components/about/AboutParagraphs'
-import { SectionsGrid } from '@/features/about/components/about/SectionsGrid'
 import { ExperienceList } from '@/features/about/components/about/ExperienceList'
 import { EducationList } from '@/features/about/components/about/EducationList'
 
