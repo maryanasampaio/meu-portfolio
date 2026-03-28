@@ -8,7 +8,7 @@ export function HomeView() {
 
   return (
     viewModel.isLoading || !viewModel.personalInfo ? (
-      <section className="py-20 md:py-20">
+      <section className="py-8 md:py-10">
         <div className="max-w-4xl">
           <div className="h-8 w-64 bg-muted rounded mb-4 animate-pulse" />
           <div className="h-5 w-80 bg-muted rounded mb-2 animate-pulse" />
@@ -16,7 +16,7 @@ export function HomeView() {
         </div>
       </section>
     ) : (
-    <section className="py-20 md:py-20">
+    <section className="py-8 md:py-10">
       <div className="max-w-4xl">
         <HomeHeader personalInfo={viewModel.personalInfo} onNavigateToProjects={viewModel.handleNavigateToProjects} />
         <SkillsGrid skills={viewModel.skills} />

@@ -34,7 +34,7 @@ export function PortfolioView() {
     </section>
   ) : (
     <div className="pb-24 relative">
-       <section id="home" className="pt-8 md:pt-16 pb-12 scroll-mt-20 min-h-screen flex items-center">
+       <section id="home" className="pt-8 md:pt-12 pb-12 scroll-mt-20">
         <div className="max-w-4xl w-full">
           {homeVM.personalInfo && (
             <>

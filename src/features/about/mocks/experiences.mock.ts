@@ -19,7 +19,7 @@ export const experiencesMock: Experience[] = [
   {
     role: 'Analista e Desenvolvedora de Software Full Stack',
     company: 'Dismoto Honda',
-    period: 'Nov 2024 — Presente (3 meses)',
+    period: 'Nov 2024 - Presente',
     location: 'Arapiraca — AL',
     responsibilities: [
       'Desenvolvimento de APIs REST escaláveis com Java e Spring Boot',
