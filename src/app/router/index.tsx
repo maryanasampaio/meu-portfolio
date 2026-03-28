@@ -1,9 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { HomeView } from '@/features/home/views/HomeView'
-import { AboutView } from '@/features/about/views/AboutView'
-import { ProjectsView } from '@/features/projects/views/ProjectsView'
-import { TechnologiesView } from '@/features/technologies/views/TechnologiesView'
-import { ContactView } from '@/features/contact/views/ContactView'
+import { PortfolioView } from '@/features/about/views/PortfolioView'
 import { AppLayout } from '@/core/components/AppLayout'
 
 const router = createBrowserRouter([
@@ -11,11 +7,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <HomeView /> },
-      { path: 'sobre', element: <AboutView /> },
-      { path: 'projetos', element: <ProjectsView /> },
-      { path: 'tecnologias', element: <TechnologiesView /> },
-      { path: 'contato', element: <ContactView /> },
+      { index: true, element: <PortfolioView /> },
     ],
   },
 ])
