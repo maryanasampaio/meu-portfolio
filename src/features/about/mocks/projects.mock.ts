@@ -2,14 +2,14 @@ import type { Project } from "@/features/about/models/ProjectsModels";
 
 export const projectsMock: Project[] = [
   {
-    name: 'Sistema Corporativo',
-    description: 'Aplicação enterprise com gestão completa de processos',
+    name: 'TaskFlow — Gerenciamento de Tarefas',
+    description: 'Aplicação fullstack completa para tarefas, metas e estudos com editor estilo Notion',
     longDescription:
-      'Sistema corporativo robusto com módulos integrados, autenticação empresarial, relatórios avançados e gestão de permissões.',
-    technologies: ['Angular', 'Java', 'Spring Boot'],
-    github: 'https://github.com/maryanasampaio',
+      'Aplicação fullstack com frontend em React 19 + TypeScript + Tailwind CSS e backend em Java com Spring Boot e MySQL. Possui metas diárias, mensais e anuais, editor de blocos estilo Notion, notificações push (PWA), autenticação JWT e API REST completa.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Java', 'Spring Boot', 'MySQL'],
+    github: 'https://github.com/maryanasampaio/gerenciamento_de_tarefas',
     category: 'Fullstack',
-    videoUrl: '/src/assets/videos/taskmanager-demo.mp4',
+    videoUrl: '/videos/Tarefas.mp4',
   },
   {
     name: 'Dashboard Analytics',
@@ -20,6 +20,5 @@ export const projectsMock: Project[] = [
     github: 'https://github.com/maryanasampaio',
     demo: '#',
     category: 'Frontend',
-    videoUrl: '/src/assets/videos/dashboard-demo.mp4',
   },
 ]
