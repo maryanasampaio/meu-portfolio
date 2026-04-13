@@ -1,73 +1,138 @@
-# React + TypeScript + Vite
+# Portfólio - Maryana Sampaio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web de portfólio desenvolvida para apresentar trajetória profissional, experiências, formação acadêmica, contatos e projetos em destaque em uma interface única, responsiva e orientada a navegação por seções.
 
-Currently, two official plugins are available:
+O projeto foi construído como uma SPA com React, TypeScript e Vite, com foco em performance, organização por features e uma camada visual moderna com Tailwind CSS, componentes reutilizáveis e animações sutis de fundo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Visão Geral
 
-## React Compiler
+- Página única com navegação suave entre as seções Home, Sobre, Projetos e Contato
+- Seção inicial com apresentação pessoal, resumo profissional, skills e estatísticas
+- Seção Sobre com foto, textos descritivos, experiências profissionais e formação acadêmica
+- Seção de projetos com busca, filtros e cards com mídia
+- Seção de contato com links e formas de acesso profissional
+- Alternância de tema claro e escuro
+- Layout responsivo para desktop e mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite 7
+- Tailwind CSS 4
+- React Router DOM 7
+- TanStack Query 5
+- Lucide React
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### UI e utilitários
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Radix UI Slot
+- class-variance-authority
+- clsx
+- tailwind-merge
+- tailwindcss-animate
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estrutura do projeto
+
+```text
+src/
+├── app/
+│   ├── query/        # Configuração do client de dados
+│   └── router/       # Roteamento principal da aplicação
+├── components/
+│   └── ui/           # Componentes base reutilizáveis
+├── core/
+│   ├── components/   # Layout global, background e elementos visuais
+│   ├── constants/
+│   ├── hooks/
+│   ├── theme/
+│   └── utils/
+├── features/
+│   └── about/
+│       ├── components/
+│       ├── mocks/
+│       ├── models/
+│       ├── repository/
+│       ├── usecases/
+│       ├── viewmodel/
+│       └── views/
+├── lib/
+└── types/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Organização da interface
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Home
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Apresenta nome, título profissional, descrição curta, principais habilidades e indicadores.
+
+### Sobre
+
+Centraliza resumo profissional, foto, experiência profissional e formação acadêmica.
+
+### Projetos
+
+Exibe projetos em destaque com busca por texto, filtros por tecnologia e suporte a mídia em vídeo nos cards.
+
+### Contato
+
+Reúne os canais profissionais para navegação rápida.
+
+## Projeto em destaque atual
+
+O portfólio destaca o projeto TaskFlow, uma aplicação fullstack de gerenciamento de tarefas, metas e estudos, com frontend em React + TypeScript + Tailwind CSS e backend em Java com Spring Boot e MySQL.
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
 ```
+
+## Como executar localmente
+
+### Pré-requisitos
+
+- Node.js 20 ou superior
+- npm
+- Git LFS
+
+### Instalação
+
+```bash
+git clone https://github.com/maryanasampaio/meu-portfolio.git
+cd meu-portfolio
+git lfs install
+git lfs pull
+npm install
+```
+
+### Ambiente de desenvolvimento
+
+```bash
+npm run dev
+```
+
+Por padrão, o Vite disponibiliza a aplicação em `http://localhost:5173`.
+
+## Build de produção
+
+```bash
+npm run build
+npm run preview
+```
+
+## Observações
+
+- O projeto utiliza assets de vídeo para exibição em cards de projeto
+- Arquivos grandes de mídia são versionados com Git LFS
+- O deploy está preparado para publicação em ambiente estático, como Vercel
+
+## Contato
+
+- GitHub: https://github.com/maryanasampaio
+- LinkedIn: https://www.linkedin.com/in/maryanasampaio
