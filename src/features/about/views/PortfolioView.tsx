@@ -52,8 +52,8 @@ export function PortfolioView() {
         </div>
         <div className="relative flex justify-center">
           <span className="bg-background px-6 text-sm text-muted-foreground flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary/50 animate-pulse"></span>
-            •••
+            <span className="w-2 h-2 rounded-full bg-primary/50 animate-pulse"></span>{' '}
+            •••{' '}
             <span className="w-2 h-2 rounded-full bg-primary/50 animate-pulse" style={{ animationDelay: '0.5s' }}></span>
           </span>
         </div>
@@ -112,8 +112,8 @@ export function PortfolioView() {
           {projectsVM.filteredProjects.length === 0 && <EmptyState />}
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {projectsVM.filteredProjects.map((project, index) => (
-              <ProjectCard key={project.name} project={project} index={index} />
+              {projectsVM.filteredProjects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
             ))}
           </div>
         </div>

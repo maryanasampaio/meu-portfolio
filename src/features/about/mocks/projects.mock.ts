@@ -9,7 +9,7 @@ export const projectsMock: Project[] = [
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Java', 'Spring Boot', 'MySQL'],
     github: 'https://github.com/maryanasampaio/gerenciamento_de_tarefas',
     category: 'Fullstack',
-    videoUrl: '/videos/Tarefas.mp4',
+    videoUrl: 'https://media.githubusercontent.com/media/maryanasampaio/meu-portfolio/main/public/videos/Tarefas.mp4',
   },
   {
     name: 'Dashboard Analytics',

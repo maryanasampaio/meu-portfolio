@@ -1,13 +1,12 @@
 import { Badge } from '@/components/ui/badge'
-import { Github } from 'lucide-react'
+import { GitHub } from 'lucide-react'
 import type { Project } from '@/features/about/models/ProjectsModels'
 
 interface ProjectCardProps {
   project: Project
-  index: number
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
   return (
     <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group flex flex-col hover:scale-[1.02]">
       {/* Media Section */}
@@ -15,12 +14,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="aspect-video w-full bg-muted relative overflow-hidden border-b-2 border-border">
           {project.videoUrl ? (
             <video
-              src={project.videoUrl}
               controls
               preload="metadata"
+              playsInline
               poster={project.imageUrl}
               className="w-full h-full object-cover"
             >
+              <source src={project.videoUrl} type="video/mp4" />
+              <track kind="captions" src="/videos/Tarefas.vtt" srcLang="pt-BR" label="Português" default />
               Seu navegador não suporta vídeos.
             </video>
           ) : (
@@ -64,7 +65,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground py-2 rounded-lg font-medium hover:opacity-90 hover:scale-105 transition-all shadow-lg hover:shadow-primary/50"
           >
-            <Github size={18} />
+            <GitHub size={18} />
             Código
           </a>
         </div>
