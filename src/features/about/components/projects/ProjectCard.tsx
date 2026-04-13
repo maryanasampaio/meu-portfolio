@@ -7,19 +7,19 @@ interface ProjectCardProps {
   index: number
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group flex flex-col hover:scale-[1.02]">
       {/* Media Section */}
       {(project.videoUrl || project.imageUrl) && (
         <div className="aspect-video w-full bg-muted relative overflow-hidden border-b-2 border-border">
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
           {project.videoUrl ? (
             <video
               src={project.videoUrl}
               controls
+              preload="metadata"
               poster={project.imageUrl}
-              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+              className="w-full h-full object-cover"
             >
               Seu navegador não suporta vídeos.
             </video>

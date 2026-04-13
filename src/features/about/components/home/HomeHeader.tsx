@@ -6,7 +6,7 @@ interface HomeHeaderProps {
   onNavigateToProjects: (e: React.MouseEvent) => void
 }
 
-export function HomeHeader({ personalInfo, onNavigateToProjects }: HomeHeaderProps) {
+export function HomeHeader({ personalInfo }: HomeHeaderProps) {
   return (
     <div className="mb-12">
       <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">

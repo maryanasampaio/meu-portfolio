@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Github, Moon, Sun } from 'lucide-react'
 import { useState, useEffect } from 'react'
