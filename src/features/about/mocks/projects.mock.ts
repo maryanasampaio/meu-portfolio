@@ -27,4 +27,19 @@ export const projectsMock: Project[] = [
       'GET  /api/v1/users/{id}/drink/history',
     ],
   },
+  {
+    name: 'Produtores Rurais API',
+    description: 'API REST desenvolvida com NestJS, TypeORM e PostgreSQL para cadastro de produtores rurais, fazendas e culturas plantadas. Possui validação de CPF/CNPJ, regras de negócio para áreas, paginação, soft delete, migrations, rate limiting e indicadores agregados por estado.',
+    longDescription:
+      'API REST com NestJS, TypeORM e PostgreSQL para gestão de produtores rurais. Inclui validação de CPF/CNPJ, regras de área (agricultável + vegetação ≤ total), paginação, soft delete, migrations, rate limiting configurável, Docker Compose e indicadores agregados por fazendas, hectares e culturas por estado.',
+    technologies: ['NestJS', 'TypeORM', 'PostgreSQL', 'Docker', 'Jest', 'REST API'],
+    github: 'https://github.com/maryanasampaio/produtores',
+    category: 'Backend',
+    endpoints: [
+      'POST /produtores',
+      'GET  /produtores?page=1&limit=10',
+      'GET  /indicadores/total-fazendas',
+      'GET  /indicadores/culturas-por-estado',
+    ],
+  },
 ]
