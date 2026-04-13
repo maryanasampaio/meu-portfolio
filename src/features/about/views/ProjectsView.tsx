@@ -36,7 +36,7 @@ export function ProjectsView() {
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-slate-200">Projetos em Destaque</h3>
             <div className="grid lg:grid-cols-2 gap-8">
-              {highlightedProjects.map((project, index) => (
+              {highlightedProjects.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
             </div>
@@ -50,7 +50,7 @@ export function ProjectsView() {
               <h3 className="text-2xl font-bold text-slate-200">Outros Projetos</h3>
             )}
             <div className="grid lg:grid-cols-2 gap-8">
-              {regularProjects.map((project, index) => (
+              {regularProjects.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
             </div>

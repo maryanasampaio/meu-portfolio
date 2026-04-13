@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { GitHub } from 'lucide-react'
+import { Github } from 'lucide-react'
 import type { Project } from '@/features/about/models/ProjectsModels'
 
 interface ProjectCardProps {
@@ -65,7 +65,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground py-2 rounded-lg font-medium hover:opacity-90 hover:scale-105 transition-all shadow-lg hover:shadow-primary/50"
           >
-            <GitHub size={18} />
+            <Github size={18} />
             Código
           </a>
         </div>
