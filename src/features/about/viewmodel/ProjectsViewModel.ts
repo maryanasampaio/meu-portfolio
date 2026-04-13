@@ -20,19 +20,30 @@ export function useProjectsViewModel() {
   }, [])
 
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState<string>('Todos')
   const [selectedFilter, setSelectedFilter] = useState<string>('Todos')
 
-  const allowedTechs = ['Angular', 'React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS', 'Java', 'Spring Boot', 'PHP', 'Laravel', 'Node.js', 'REST API']
+  const categories = useMemo(
+    () => ['Todos', ...new Set(projects.map((p) => p.category))],
+    [projects]
+  )
+
+  const allowedTechs = ['Angular', 'React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS', 'Java', 'Spring Boot', 'PHP', 'Laravel', 'Node.js', 'REST API', 'MySQL', 'JWT', 'MVC']
+
+  const projectsByCategory = useMemo(
+    () => selectedCategory === 'Todos' ? projects : projects.filter((p) => p.category === selectedCategory),
+    [projects, selectedCategory]
+  )
 
   const allTechs = useMemo(
-    () => [...new Set(projects.flatMap((p) => p.technologies))].filter(tech => allowedTechs.includes(tech)).sort(),
-    [projects]
+    () => [...new Set(projectsByCategory.flatMap((p) => p.technologies))].filter(tech => allowedTechs.includes(tech)).sort(),
+    [projectsByCategory]
   )
 
   const filters = useMemo(() => ['Todos', ...allTechs], [allTechs])
 
   const filteredProjects = useMemo(() =>
-    projects.filter((project) => {
+    projectsByCategory.filter((project) => {
       const matchesSearch =
         project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -42,12 +53,20 @@ export function useProjectsViewModel() {
 
       return matchesSearch && matchesFilter
     }),
-    [projects, searchTerm, selectedFilter]
+    [projectsByCategory, searchTerm, selectedFilter]
   )
+
+  function handleCategoryChange(category: string) {
+    setSelectedCategory(category)
+    setSelectedFilter('Todos')
+  }
 
   return {
     searchTerm,
     setSearchTerm,
+    selectedCategory,
+    setSelectedCategory: handleCategoryChange,
+    categories,
     selectedFilter,
     setSelectedFilter,
     filters,

@@ -7,7 +7,7 @@ import { AboutParagraphs } from '@/features/about/components/about/AboutParagrap
 import { ExperienceList } from '@/features/about/components/about/ExperienceList'
 import { EducationList } from '@/features/about/components/about/EducationList'
 import { SearchBar } from '@/features/about/components/projects/SearchBar'
-import { FiltersBar } from '@/features/about/components/projects/FiltersBar'
+import { FiltersBar, CategoryTabs } from '@/features/about/components/projects/FiltersBar'
 import { ProjectCard } from '@/features/about/components/projects/ProjectCard'
 import { EmptyState } from '@/features/about/components/projects/EmptyState'
 import { ContactList } from '@/features/about/components/contact/ContactList'
@@ -105,6 +105,7 @@ export function PortfolioView() {
           <PageHeader title="Projetos em Destaque" description="Trabalhos recentes que demonstram minhas habilidades técnicas" />
 
           <div className="space-y-4">
+            <CategoryTabs categories={projectsVM.categories} selected={projectsVM.selectedCategory} onSelect={projectsVM.setSelectedCategory} />
             <SearchBar value={projectsVM.searchTerm} onChange={projectsVM.setSearchTerm} />
             <FiltersBar filters={projectsVM.filters} selectedFilter={projectsVM.selectedFilter} onSelect={projectsVM.setSelectedFilter} />
           </div>

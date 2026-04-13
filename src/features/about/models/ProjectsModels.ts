@@ -7,8 +7,10 @@ export interface Project {
   technologies: string[]
   github: string
   demo?: string
+  docs?: string
   category: ProjectCategory
   highlight?: boolean
   imageUrl?: string
   videoUrl?: string
+  endpoints?: string[]
 }
