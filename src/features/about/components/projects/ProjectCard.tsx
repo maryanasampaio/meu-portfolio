@@ -14,8 +14,6 @@ const categoryColors: Record<string, string> = {
 }
 
 export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
-  const hasMedia = project.videoUrl || project.imageUrl
-
   return (
     <div className="bg-card border-2 border-border rounded-2xl overflow-hidden hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group flex flex-col hover:scale-[1.02] h-full">
       {/* Media Section - fixed height for all cards */}
