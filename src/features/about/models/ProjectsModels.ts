@@ -5,10 +5,11 @@ export interface Project {
   description: string
   longDescription: string
   technologies: string[]
-  github: string
+  github?: string
   demo?: string
   docs?: string
   category: ProjectCategory
+  isGroupParticipation?: boolean
   highlight?: boolean
   imageUrl?: string
   videoUrl?: string

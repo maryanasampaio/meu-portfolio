@@ -42,4 +42,14 @@ export const projectsMock: Project[] = [
       'GET  /indicadores/culturas-por-estado',
     ],
   },
+  {
+    name: 'ADS',
+    description: 'Aplicação fullstack para automatização de atendimento e gestão comercial, com funil de conversão, distribuição inteligente de leads e integração com bot automático no WhatsApp.',
+    longDescription:
+      'Projeto desenvolvido em grupo com objetivo de automatizar processos de atendimento e gestão comercial. A solução contempla gestão de contatos, acompanhamento de etapas do funil, distribuição automatizada de leads e operação online integrada a um bot no WhatsApp. Arquitetura fullstack com frontend em Angular e backend em Java com Spring Boot.',
+    technologies: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'REST API'],
+    category: 'Fullstack',
+    isGroupParticipation: true,
+    videoUrl: '/videos/crm.mp4',
+  },
 ]

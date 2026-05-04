@@ -28,7 +28,28 @@ export function useProjectsViewModel() {
     [projects]
   )
 
-  const allowedTechs = ['Angular', 'React', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS', 'Java', 'Spring Boot', 'PHP', 'Laravel', 'Node.js', 'REST API', 'MySQL', 'JWT', 'MVC']
+  const allowedTechs = new Set([
+    'Angular',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'HTML',
+    'CSS',
+    'Java',
+    'Spring Boot',
+    'PHP',
+    'Laravel',
+    'Node.js',
+    'REST API',
+    'MySQL',
+    'JWT',
+    'MVC',
+    'NestJS',
+    'TypeORM',
+    'PostgreSQL',
+    'Docker',
+    'Jest'
+  ])
 
   const projectsByCategory = useMemo(
     () => selectedCategory === 'Todos' ? projects : projects.filter((p) => p.category === selectedCategory),
@@ -36,24 +57,39 @@ export function useProjectsViewModel() {
   )
 
   const allTechs = useMemo(
-    () => [...new Set(projectsByCategory.flatMap((p) => p.technologies))].filter(tech => allowedTechs.includes(tech)).sort(),
+    () => [...new Set(projectsByCategory.flatMap((p) => p.technologies))]
+      .filter((tech) => allowedTechs.has(tech))
+      .sort((a, b) => a.localeCompare(b, 'pt-BR')),
     [projectsByCategory]
   )
 
   const filters = useMemo(() => ['Todos', ...allTechs], [allTechs])
 
-  const filteredProjects = useMemo(() =>
+  const searchedProjects = useMemo(() =>
     projectsByCategory.filter((project) => {
       const matchesSearch =
         project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.technologies.some((tech) => tech.toLowerCase().includes(searchTerm.toLowerCase()))
 
-      const matchesFilter = selectedFilter === 'Todos' || project.technologies.includes(selectedFilter)
-
-      return matchesSearch && matchesFilter
+      return matchesSearch
     }),
-    [projectsByCategory, searchTerm, selectedFilter]
+    [projectsByCategory, searchTerm]
+  )
+
+  const filteredProjects = useMemo(
+    () => searchedProjects.filter((project) => selectedFilter === 'Todos' || project.technologies.includes(selectedFilter)),
+    [searchedProjects, selectedFilter]
+  )
+
+  const authoredProjects = useMemo(
+    () => filteredProjects.filter((project) => !project.isGroupParticipation),
+    [filteredProjects]
+  )
+
+  const groupParticipationProjects = useMemo(
+    () => searchedProjects.filter((project) => project.isGroupParticipation),
+    [searchedProjects]
   )
 
   function handleCategoryChange(category: string) {
@@ -71,6 +107,8 @@ export function useProjectsViewModel() {
     setSelectedFilter,
     filters,
     filteredProjects,
+    authoredProjects,
+    groupParticipationProjects,
     isLoading
   }
 }

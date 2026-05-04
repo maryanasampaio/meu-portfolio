@@ -112,10 +112,30 @@ export function PortfolioView() {
 
           {projectsVM.filteredProjects.length === 0 && <EmptyState />}
 
-          <div className="grid lg:grid-cols-2 gap-8">
-              {projectsVM.filteredProjects.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
+          {projectsVM.authoredProjects.length > 0 && (
+            <div className="space-y-5">
+              <h3 className="text-2xl font-bold text-slate-200">Projetos Autorais</h3>
+              <div className="grid lg:grid-cols-2 gap-8">
+                {projectsVM.authoredProjects.map((project) => (
+                  <ProjectCard key={project.name} project={project} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="space-y-5">
+            <h3 className="text-2xl font-bold text-slate-200">Participações</h3>
+            {projectsVM.groupParticipationProjects.length > 0 ? (
+              <div className="grid lg:grid-cols-2 gap-8">
+                {projectsVM.groupParticipationProjects.map((project) => (
+                  <ProjectCard key={project.name} project={project} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-sm border border-dashed border-border rounded-xl p-4">
+                Nenhuma participação em grupo para os filtros atuais.
+              </p>
+            )}
           </div>
         </div>
       </section>
