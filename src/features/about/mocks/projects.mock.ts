@@ -60,6 +60,6 @@ export const projectsMock: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'REST API', 'MariaDB'],
     demo: 'https://util-lar.com/',
     category: 'Fullstack',
-    videoUrl: '/videos/Video Project 13.mp4',
+    videoUrl: '/videos/util-lar.mp4',
   },
 ]
