@@ -42,6 +42,7 @@ export function useProjectsViewModel() {
     'Node.js',
     'REST API',
     'MySQL',
+    'MariaDB',
     'JWT',
     'MVC',
     'NestJS',

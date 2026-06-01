@@ -52,4 +52,14 @@ export const projectsMock: Project[] = [
     isGroupParticipation: true,
     videoUrl: '/videos/crm.mp4',
   },
+  {
+    name: 'Util Lar — Gestão de Loja de Móveis',
+    description: 'Plataforma fullstack para gestão de loja de móveis novos e usados, com controle de estoque, sistema de favoritos, notificações push, simulador financeiro inspirado no Infinity Pay e dashboard administrativo com indicadores de desempenho. Implementada como PWA para instalação mobile sem lojas de aplicativos.',
+    longDescription:
+      'Aplicação fullstack desenvolvida para resolver problemas reais de gestão de uma loja de móveis: organização do estoque, divulgação dos produtos, acompanhamento das vendas e análise dos resultados financeiros. Funcionalidades incluem CRUD de produtos, controle de estoque com marcação de vendidos, listagem paginada com filtros inteligentes por categoria/marca/preço/data, sistema de favoritos, notificações de novos produtos, compartilhamento de anúncios, simulador financeiro com comparação de cenários e dashboard com histórico de lucros, produtos vendidos, ranking de desempenho e indicadores para tomada de decisão. Desenvolvida como PWA para instalação direta no celular.',
+    technologies: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'REST API', 'MariaDB'],
+    demo: 'https://util-lar.com/',
+    category: 'Fullstack',
+    videoUrl: '/videos/Video Project 13.mp4',
+  },
 ]
