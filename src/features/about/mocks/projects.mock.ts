@@ -50,7 +50,7 @@ export const projectsMock: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'REST API'],
     category: 'Fullstack',
     isGroupParticipation: true,
-    videoUrl: '/videos/crm.mp4',
+    videoUrl: 'https://media.githubusercontent.com/media/maryanasampaio/meu-portfolio/main/public/videos/crm.mp4',
   },
   {
     name: 'Util Lar — Gestão de Loja de Móveis',
@@ -60,6 +60,6 @@ export const projectsMock: Project[] = [
     technologies: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'REST API', 'MariaDB'],
     demo: 'https://util-lar.com/',
     category: 'Fullstack',
-    videoUrl: '/videos/util-lar.mp4',
+    videoUrl: 'https://media.githubusercontent.com/media/maryanasampaio/meu-portfolio/main/public/videos/util-lar.mp4',
   },
 ]
